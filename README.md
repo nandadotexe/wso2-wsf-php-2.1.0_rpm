@@ -10,3 +10,5 @@ rpmbuild -bb -vv --buildroot "/tmp/wso2-wsf-php53-2.1.0-1.el6.x86_64" SPECS/wsf-
 requirements 
 httpd => 2.2.15
 Php =<5.4 (5.3.3)
+
+
