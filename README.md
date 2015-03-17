@@ -7,6 +7,6 @@ rpmbuild -bb -vv --buildroot "/tmp/axis2c-src-1.6.0-1.el6.x86_64" SPECS/axis2-ap
 create wso2-php rpm command line for lower php 5.4 version
 rpmbuild -bb -vv --buildroot "/tmp/wso2-wsf-php53-2.1.0-1.el6.x86_64" SPECS/wsf-apache-server.spec>wsf-apache-server.spec.log 2>&1
 
-requirements 
+requirements </br>
 httpd => 2.2.15
 Php =<5.4 (5.3.3)
