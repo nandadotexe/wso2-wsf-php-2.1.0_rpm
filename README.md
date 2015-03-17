@@ -11,4 +11,3 @@ requirements
 httpd => 2.2.15
 Php =<5.4 (5.3.3)
 
-
