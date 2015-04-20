@@ -1,0 +1,67 @@
+step by step install 
+step 1 -) if does installed apache or nginx...etc web application.
+yes ->Skip to next step.
+No -> install apache.
+          you can install apache via apache yum repo or source code.
+          for repo install command 
+           rpm -Uvh epel-release-6-8.noarch.rpm
+           for apache install via yum
+           yum install httpd
+           install apache via source code.
+          wget http://ftp.mku.edu.tr/apache-dist//httpd/httpd-2.4.12.tar.gz 
+          tar -xvf  httpd-2.4.12.tar.gz
+          cd httpd-2.4.12
+         ./configure --enable-file-cache --enable-cache --enable-cache-disk --enable-cache-socache --enable-xml2enc --enable-log-debug --enable-proxy --enable-session --enable-session-cookie --enable-ssl --enable-heartbeat --enable-heartmonitor --enable-unixd --with-mpm=event --with-pcre
+make;make install
+ step 2 -)  if does installed php.
+yes->Skip to next step
+No -> install php 5.4  or higher version.
+          you can install php via php yum repo or source code.
+          for apache install via yum
+           yum install php
+          install php via source code.
+          wget https://php.net/get/php-5.6.8.tar.bz2/from/a/mirror
+           tar -xvf php-5.6.8.tar.bz2
+          cd  php-5.6.8
+            './configure'  '--prefix=/opt/php56' '--with-mcrypt' '--with-apxs2=/usr/local/apache2/bin/apxs' '--enable-shmop' '--enable-sysvmsg' '--enable-sysvsem' '--enable-sysvshm' '--enable-sigchild' '--enable-maintainer-zts' '--with-zlib' '--with-mysql=mysqlnd' '--with-imap' '--with-bz2' '--enable-mysqlnd' '--with-imap-ssl' '--with-kerberos' '--with-openssl' '--enable-libxml' '--with-mysqli' '--enable-soap' '--with-gd' '--with-png-dir' '--with-xpm-dir=/usr/lib64' '--with-freetype-dir=/usr/include/freetype2/freetype' '--enable-gd-native-ttf' '--with-jpeg-dir' '--with-vpx-dir' '--enable-mbstring' '--enable-bcmath' '--with-xsl'
+***This is like full install but You can remove the module you want.you can config prefix and apache path ..etc what is current path your server.
+ step 2 -)  how is install wso2-wsf-php.
+download rpm from githup.
+wget https://github.com/ureyni/wso2-wsf-php-2.1.0_rpm/blob/master/wso2-wsf-php56-2.1.0-1.el6.x86_64.rpm
+yum localinstall wso2-wsf-php56-2.1.0-1.el6.x86_64.rpm
+test wsf ...
+
+[root@kepclone ~]# php -i|grep wsf
+include_path => .:/opt/wso2/wsf_php/scripts/ => .:/opt/wso2/wsf_php/scripts/
+wsf
+wsf support => enabled
+wsf version => 2.1.0
+wsf.attachment_cache_dir => /tmp => /tmp
+wsf.enable_attachment_caching => 0 => 0
+wsf.home => /opt/wso2/wsf_c => /opt/wso2/wsf_c
+wsf.log_level => 0 => 0
+wsf.log_path => /tmp => /tmp
+wsf.rm_db_dir => /tmp => /tmp
+LD_LIBRARY_PATH => :/opt/wso2/wsf_c/lib:/opt/wso2/wsf_c/modules/rampart
+_SERVER["LD_LIBRARY_PATH"] => :/opt/wso2/wsf_c/lib:/opt/wso2/wsf_c/modules/rampart
+
+manuel configuration
+php.ini 
+where is php.ini file.
+--------------------------
+[root@kepclone ~]# php --ini
+Configuration File (php.ini) Path: /usr/local/lib
+Loaded Configuration File:         /usr/local/lib/php.ini
+Scan for additional .ini files in: (none)
+Additional .ini files parsed:      (none)
+-----------------------
+php.ini setting for wso2-php
+include_path = ".:/opt/wso2/wsf_php/scripts/"
+[wsf]
+extension=wsf.so
+wsf.home="/opt/wso2/wsf_c"
+wsf.log_level=0
+wsf.log_path="/tmp"
+wsf.rm_db_dir="/tmp"
+
+***http://wso2.com/project/wsf/php/2.0.0/docs/manual.html
