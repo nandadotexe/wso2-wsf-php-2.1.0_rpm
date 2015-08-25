@@ -42,3 +42,5 @@ class HuSoapClient extends SoapClient
 
 
 $client = new HuSoapClient($wsdl_uri);
+//advice 
+//$client->method_name($parameters)
