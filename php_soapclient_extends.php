@@ -5,6 +5,8 @@
  * cause : response data is mime format , is not xml format 
  * because get xml data in mime data ,we parse response data.
  * 
+ * HASAN UCAK 
+ * hasan.ucak@gmail.com
  */
 
 define("CRLF","\r\n");
